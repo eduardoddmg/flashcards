@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { Cards } from './cards';
 
 const Page = () => {
   const { status } = useSession();
@@ -35,9 +36,10 @@ const Page = () => {
 
   return (
     <div>
-      <Link href="/app/deck/adicionar">
+      <Link href="/app/deck">
         <Button variant="secondary">Adicionar Baralho</Button>
       </Link>
+      <Cards />
     </div>
   );
 };
