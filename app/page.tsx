@@ -20,17 +20,17 @@ const Page = () => {
         <div className="container">
           <div className="max-w-2xl text-center mx-auto">
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-              Agendamento de cortes para barbearia
+              Crie e Revise Flashcards com Facilidade
             </h1>
             <p className="mt-3 text-xl text-muted-foreground">
-              Com o nosso sistema de gestão de barbearia, você terá tudo o que
-              precisa para organizar seus agendamentos, atender melhor seus
-              clientes e impulsionar o crescimento do seu negócio.
+              Nosso sistema de criação de flashcards permite que você organize
+              seus estudos, revise conteúdos importantes e melhore seu
+              aprendizado.
             </p>
           </div>
           <div className="mt-10 relative max-w-5xl mx-auto">
             <Image
-              src="/hero.png"
+              src="/flashcards-hero.png"
               className="rounded-xl"
               alt="Image Description"
               width="1024"
@@ -57,11 +57,11 @@ const Page = () => {
                 <CalendarIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                 <div className="ms-5 sm:ms-8">
                   <h3 className="text-base sm:text-lg font-semibold">
-                    Agendamentos Rápidos
+                    Revisões Programadas
                   </h3>
                   <p className="mt-1 text-muted-foreground">
-                    Agende cortes de forma rápida e eficiente, mantendo um
-                    controle preciso sobre a agenda de cada barbeiro.
+                    Programe revisões automáticas para garantir que você nunca
+                    esqueça o que aprendeu.
                   </p>
                 </div>
               </div>
@@ -70,11 +70,11 @@ const Page = () => {
                 <UserIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                 <div className="ms-5 sm:ms-8">
                   <h3 className="text-base sm:text-lg font-semibold">
-                    Gestão de Clientes
+                    Gestão de Conteúdo
                   </h3>
                   <p className="mt-1 text-muted-foreground">
-                    Mantenha o cadastro de seus clientes organizado, com
-                    histórico de agendamentos e preferências salvas.
+                    Organize seus flashcards por temas, disciplinas e níveis de
+                    dificuldade.
                   </p>
                 </div>
               </div>
@@ -86,8 +86,8 @@ const Page = () => {
                     Segurança de Dados
                   </h3>
                   <p className="mt-1 text-muted-foreground">
-                    Todas as informações são protegidas com a mais alta
-                    segurança, garantindo a privacidade de seus clientes.
+                    Seus dados são protegidos com a mais alta segurança,
+                    garantindo a privacidade do seu conteúdo.
                   </p>
                 </div>
               </div>
@@ -99,11 +99,11 @@ const Page = () => {
                 <ScissorsIcon className="flex-shrink-0 mt-2 h-8 w-8" />
                 <div className="ms-5 sm:ms-8">
                   <h3 className="text-base sm:text-lg font-semibold">
-                    Agendamentos de Cortes
+                    Criação Fácil de Flashcards
                   </h3>
                   <p className="mt-1 text-muted-foreground">
-                    Organize agendamentos de cortes de cabelo, barba e
-                    tratamentos especiais com facilidade.
+                    Crie flashcards de forma rápida e intuitiva, com suporte a
+                    imagens e textos.
                   </p>
                 </div>
               </div>
@@ -115,8 +115,8 @@ const Page = () => {
                     Notificações Instantâneas
                   </h3>
                   <p className="mt-1 text-muted-foreground">
-                    Receba notificações automáticas para cada agendamento e
-                    mantenha seus clientes atualizados.
+                    Receba notificações para lembrar de suas revisões e manter
+                    seu aprendizado em dia.
                   </p>
                 </div>
               </div>
@@ -128,8 +128,8 @@ const Page = () => {
                     Simples e Eficiente
                   </h3>
                   <p className="mt-1 text-muted-foreground">
-                    Fácil de usar, com interface intuitiva que otimiza o tempo
-                    do barbeiro e melhora o atendimento.
+                    Fácil de usar, com interface intuitiva que otimiza seu tempo
+                    e melhora seu aprendizado.
                   </p>
                 </div>
               </div>

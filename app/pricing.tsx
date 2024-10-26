@@ -18,11 +18,11 @@ interface PlanFeature {
 }
 
 const planFeatures: PlanFeature[] = [
-  { name: 'Agendamentos ilimitados', free: true, premium: true },
-  { name: 'Gestão de clientes', free: true, premium: true },
-  { name: 'Notificações automáticas', free: false, premium: true },
+  { name: 'Criação ilimitada de flashcards', free: true, premium: true },
+  { name: 'Acesso a flashcards públicos', free: true, premium: true },
+  { name: 'Sincronização entre dispositivos', free: false, premium: true },
+  { name: 'Estatísticas avançadas', free: false, premium: true },
   { name: 'Suporte prioritário', free: false, premium: true },
-  { name: 'Relatórios detalhados', free: false, premium: true },
 ];
 
 export default function PricingSectionCards() {
@@ -36,7 +36,7 @@ export default function PricingSectionCards() {
             Planos de Preço
           </h2>
           <p className="mt-1 text-muted-foreground">
-            Escolha o plano que melhor atende às necessidades da sua barbearia.
+            Escolha o plano que melhor atende às suas necessidades de estudo.
           </p>
         </div>
         {/* Fim do Título */}
@@ -87,7 +87,7 @@ export default function PricingSectionCards() {
               <span className="text-lg text-muted-foreground">/mês</span>
             </CardHeader>
             <CardDescription className="text-center">
-              Para barbearias que desejam crescer
+              Para estudantes dedicados
             </CardDescription>
             <CardContent>
               <ul className="mt-7 space-y-2.5 text-sm">

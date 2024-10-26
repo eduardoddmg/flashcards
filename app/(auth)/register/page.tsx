@@ -25,19 +25,24 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod'; // Biblioteca de validação de esquema
 import { useForm } from 'react-hook-form'; // Hook para gerenciamento de formulários
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Método para registro de usuário no Firebase Auth
-import { auth } from '@/firebase'; // Configuração do Firebase
+import { auth, db } from '@/firebase'; // Configuração do Firebase
 import { useToast } from '@/hooks/use-toast'; // Hook para exibir notificações
 import Link from 'next/link';
 import { signIn, useSession } from 'next-auth/react'; // Funções para autenticação com NextAuth
-import { useRouter } from 'next/navigation'; // Hook para navegação
+import { useRouter } from 'next/navigation';
+import { doc, setDoc } from 'firebase/firestore'; // Funções para manipulação do Firestore
 
 // Define o esquema de validação usando Zod
 const FormSchema = z.object({
-  // Campo de e-mail com validação de formato
+  username: z.string().min(1, {
+    message: 'Por favor, digite um nome de usuário.',
+  }),
+  idade: z.string().min(1, {
+    message: 'Por favor, digite uma idade válida.',
+  }),
   email: z.string().email({
     message: 'Por favor, digite um e-mail válido.',
   }),
-  // Campo de senha com validação de tamanho mínimo de 8 caracteres
   password: z.string().min(8, {
     message: 'A senha deve ter 8 caracteres.',
   }),
@@ -61,6 +66,8 @@ export default function Register() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema), // Resolver para integrar Zod com react-hook-form
     defaultValues: {
+      username: '',
+      idade: 0,
       email: '', // Valor padrão do campo de e-mail
       password: '', // Valor padrão do campo de senha
     },
@@ -76,6 +83,14 @@ export default function Register() {
         data.password
       );
       const user = userCredential.user; // Obtém o usuário recém-criado
+
+      // Adiciona o usuário à coleção 'users' no Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        username: data.username,
+        idade: data.idade,
+        email: data.email,
+        idUser: user.uid,
+      });
 
       // Faz o login automático com o NextAuth após o registro
       const signInResult = await signIn('credentials', {
@@ -121,6 +136,42 @@ export default function Register() {
         <Form {...form}>
           {/* Formulário de registro */}
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            {/* Campo de nome de usuário */}
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nome de usuário</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="text"
+                      placeholder="Seu nome de usuário" // Placeholder para o campo de nome de usuário
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage /> {/* Mensagem de erro se houver */}
+                </FormItem>
+              )}
+            />
+            {/* Campo de idade */}
+            <FormField
+              control={form.control}
+              name="idade"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Idade</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder="Sua idade" // Placeholder para o campo de idade
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage /> {/* Mensagem de erro se houver */}
+                </FormItem>
+              )}
+            />
             {/* Campo de e-mail */}
             <FormField
               control={form.control}
